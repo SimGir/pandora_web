@@ -1,0 +1,207 @@
+*{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+}
+.container .headder{
+    width: 100%;
+    height: 159px;
+}
+.container .breadcrumb{
+    max-width: 1228px;
+    margin: 0 auto 10px;
+    position: relative;
+}
+.container .breadcrumb::after{
+    display: block;
+    clear: both;
+    content: "";
+}
+.container .breadcrumb li{
+    float: left;
+    margin: 4px 8px 4px 0;
+}
+.container .breadcrumb li a{
+    font: 12px simhei;
+    color: #333;
+    text-align:center;
+    line-height:24px;
+}
+.container .breadcrumb li span{
+    font: 12px simhei;
+    font-weight: bold;
+    color: #333;
+    text-align:center;
+    line-height:24px;
+}
+.container .breadcrumb .first i{
+    position: relative;
+    top: 3px;
+    left: 9px;
+}
+.container .breadcrumb .third i,
+.container .breadcrumb .two i{
+    position: relative;
+    top: 2px;
+    left: -6px;
+}
+.container .product {
+    max-width: 1228px;
+    height: 600px;
+    margin:0 auto;
+}
+.container .product .product-pic{
+    /* display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-start; */
+    position: relative;
+}
+.container .product .product-pic::after{
+    content: '';
+    display: block;
+    clear: both;
+}
+.container .product .product-pic .thumb-container{
+    width: 84px;
+    height: 600px;
+    float: left;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+}
+.container .product .product-pic .thumb-container .thumb{
+    width: 80px;
+    height: 80px;
+    margin: 5px 0;
+}
+.container .product .product-pic .thumb-container .thumb img{
+    display: block;
+    width: 80px;
+    height: 80px;
+    background-size:100% 100%;
+}
+.container .product .product-pic .thumb-container .select{
+    border: 2px solid #27251f;
+}
+.container .product .product-pic .zomimg{
+    float: left;
+    width: 500px;
+    height: 500px;
+    overflow: hidden;
+    margin: 10px 50px 0 50px; 
+    box-shadow: 0 0 3px #ccc;
+    position: relative;
+}
+.container .product .product-pic .zomimg>img{
+    display: block;
+    width: 500px;
+    height: 500px;
+}
+.container .product .product-pic .zomimg .zomimg-hover{
+    display: none;
+    position: absolute;
+    top: 0px;
+    left:0px;
+    width: 200px;
+    height: 200px;
+    background-color: skyblue;
+    opacity: 0.3;
+    cursor: move;
+}
+.container .product .product-pic .big-zomimg{
+    display: none;
+    width: 500px;
+    height: 500px;
+    overflow: hidden;
+    /* border: 1px solid black; */
+    position: absolute;
+    top: 10px;
+    left: 636px;
+} 
+.container .product .product-pic .big-zomimg img{
+   position: relative;
+   left:0px;
+   top: 0px;
+}
+.container .product .product-det{
+   width: 400px;
+   float: left;
+   padding-top: 40px;
+   display: flex;
+   flex-flow: column nowrap;
+   justify-content: flex-start;
+   align-items: center;
+   box-sizing: border-box;
+}
+.container .product .product-det .product-title{
+    font-weight: normal;
+    font: 28px simhei;
+    color: #27251F;
+    margin-bottom: 20px;
+}
+.container .product .product-det .product-price{
+    font: 13px simhei;
+    color: #27251F;
+    margin: 50px 0 30px;
+}
+.container .product .product-det .product-desc{
+    width: 75%;
+    font: 12px simhei;
+    color: #27251F;
+    text-align: left;
+    margin: 0 0 10px 0;
+}
+.container .product .product-det .shoppingcar{
+    width: 75%;
+    height: 45px;
+    margin: 20px 0 0;
+    background-color: #000;
+    color: #fff;
+    font: 12px simhei;
+    border: 0;
+    border-radius: 2%;
+    transform: background 2s;
+}
+.container .product .product-det .shoppingcar:hover{
+    background: rgba(0,0,0,0.8);
+}
+.container .service{
+    width: 1228px;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+    padding: 75px 0;
+    margin: 0 auto;
+}
+.container .service .service-left{
+    width:60%;
+    padding: 12px 120px 0 0;
+    font: 13px simhei;
+    color: #333;
+    box-sizing: border-box;
+}
+.container .service .service-left p{
+    font-size: 16px;
+}
+.container .service .service-right{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+.container .service .service-right .section-content  li{
+    margin: 0 100px 25px 0;
+}
+.container .service .service-right .section-content .label{
+    display: block;
+    font: 12px simhei;
+    color: #333;
+    padding-bottom: 5px;
+}
+.container .service .service-right .section-content .value{
+    display: block;
+    font: 12px simhei;
+    color: #72716D;
+}

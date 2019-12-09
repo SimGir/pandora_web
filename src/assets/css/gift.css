@@ -1,0 +1,273 @@
+/* container width*/
+@media (min-width: 1200px) {
+    .container {
+        width: 960px;
+        padding-left:0;
+        padding-right:0;
+    }
+}
+.container{
+    margin-top:150px;
+}
+.my-big{
+    position:relative;
+}
+/* banner start*/
+.banner{
+    width:100%;
+    height:auto;
+    position:relative;
+}
+.banner-top{
+    background-color:#f3dad8;
+    width:100%;
+    height:10%;
+    padding:0.2rem 0;
+}
+.banner-top p{
+    text-align:center;
+    font-size:0.8rem;
+    margin:0;
+}
+.banner-middle{
+    width:100%;
+    height:90%;
+    position:absolute;
+    top:2rem;
+}
+.banner button:hover{
+    background:transparent;
+    color:#fff;
+}
+.banner button:active{
+	background:#ff3435 !important;
+    color:#fff !important;
+}
+.banner button:focus{
+	box-shadow:0 0 0 !important;
+}
+.w-60{
+    width:60%;
+}
+.banner img{
+    width:100%;
+    height:auto;
+	z-index:10;
+}
+.banner-middle p,.banner-middle h1{
+    text-align: center;
+    font-size:1rem;
+    margin-bottom:.6rem;
+}
+.banner-middle h1{
+    font-size:2rem;
+	margin-bottom:1rem;
+}
+.banner button{
+    margin:0 auto;
+    color:#fff;
+    font-size:.8rem;
+    display:block;
+}
+.content-box{
+    width:40%;
+    height:auto;
+    color:#fff;
+    position:absolute;
+}
+@media screen and (min-width:1200px){
+    .content-box{
+        top:30%;
+        left:1rem;
+    }
+}
+@media screen and (min-width:992px) and (max-width:1199px){
+    .content-box{
+        top:20%;
+        left:0.6rem;
+    }
+}
+@media screen and (min-width:768px) and (max-width:991px){
+    .content-box{
+        top:10%;
+        left:0.3rem;
+    }
+}
+@media screen and (max-width:767px){
+    .content-box{
+        top:5%;
+        left:0.2rem;
+    }
+}
+/*banner end*/
+/*valentine start*/
+.valentine{
+    width: 100%;
+    padding:40px 0;
+    text-align:center;
+    font-size:12px;
+    overflow: hidden;
+}
+.valentine .my-big{
+    width:100%;
+}
+.valentine .valen-prod{
+    height: auto;
+    transition:all 1s ease;
+}
+.valentine h2{
+    font-size:30px;
+    margin-bottom:18px;
+}
+.valentine .prod_box{
+    /* width:320px; */
+    height:auto;
+    box-sizing:border-box;
+    position:relative;
+    /* flex-grow 默认值是0，表示不随容器增大而增大 */
+    flex-grow:0;
+    /* flex-shrink 默认值是1，表示可以随容器缩小而缩小 */
+    flex-shrink: 0;
+}
+.valentine .prod_box img.pro{
+    width:100%;
+    max-width:259px;
+    max-height:259px;
+}
+.valentine .valen-prod p{
+    margin:0;
+}
+/*上一页和下一页*/
+.last_page,.next_page{
+    width:5%;
+    height:16%;
+    border:1px solid #a9a7a7;
+    border-radius:5px;
+    position:absolute;
+    top:42%;
+    background-repeat:no-repeat;
+    background-color: #fff;
+    opacity: 0.8;
+    background-position:center center;
+}
+.last_page{
+    left:0%;
+    background-image:url("../../../public/img/big-left.png");
+}
+.next_page{
+    right:0%;
+    background-image:url("../../../public/img/big-right.png");
+}
+/*商品标签*/
+.po-abs-top{
+    width:24%;
+    height:5%;
+    background:#f08080;
+    color:#fff;
+    position:absolute;
+    top:0;
+    left:38%;
+    letter-spacing: 1.5px;  /* 设置文字间距，要有长度单位px */
+}
+/* 购买按钮相关*/
+.buy{
+    width:100%;
+    visibility:hidden;
+}
+.buy>div{
+    width:70%;
+    height:40px;
+    line-height: 40px;
+    color:#fff;
+    font-size:0.8rem;
+}
+.buy>.addcart,.buy>.love{
+    cursor: pointer;
+}
+.buy .love {
+    width: 40px;
+    height:40px;
+    border: 1px solid #202020;
+}
+.buy .love img{
+    width:24px;
+}
+/*立即选购相关*/
+a.btn-dark{
+    width:260px !important;
+    height:auto;
+    line-height:50px;
+    padding:5px 45px 3px;
+    font-family: "Optima LT W10 Roman";
+    font-size:1rem;
+    border-radius:0;
+}
+/*图片展示相关*/
+.bg-pink{
+    background:#fff1f0;
+}
+.my_font_family{
+    font-family: "Optima LT W01 Roman";
+    letter-spacing: 1px;
+}
+.font-20{
+    font-size:20px;
+}
+
+/*图片展示上的文本*/
+.box_left{
+    width:50%;
+    padding:20px;
+}
+.box_left p{
+    margin:0;
+    letter-spacing: 1px;
+}
+.box_left p:last-of-type{
+    font-size:18px;
+}
+.box_left button{
+    width:100%;
+    height:50px;
+    border-radius:0;
+}
+.po-abs-left-bottom{
+    position:absolute;
+    bottom:0;
+    left:0;
+}
+.small_btn{
+    width:115px !important;
+}
+/*仍在寻找完美礼物相关*/
+.parent{
+    margin:0 auto;
+}
+.card{
+    border:0;
+    border-radius:0;
+    border-bottom:1px solid;
+}
+.card-header{
+    background:transparent;
+    border:0;
+    font-size:18px;
+}
+.card:nth-child(2){
+    border-top:1px solid;
+}
+.card .col-4{
+    padding-bottom:20px;
+}
+
+/*最后一部分*/
+.last_part{
+    margin:100px 0;
+}
+.last_part h1{
+    letter-spacing: 1px;
+    margin-bottom:20px;
+}
+.last_part p{
+    font-size:18px;
+}

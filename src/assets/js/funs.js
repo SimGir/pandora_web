@@ -1,0 +1,91 @@
+import axios from "axios";
+
+export default{
+    //得到gift页商品并展示
+    getGift(url,obj,callback,fun1){
+        axios.get(url,{params:obj}).then(callback).then(fun1);
+    },
+    //得到detail页商品详情并展示
+    getDetail(url,obj,callback){
+        axios.get(url,{params:obj}).then(callback);
+    },
+    //根据商品编号，查找多个商品的信息
+    getProduct(url,obj,callback){
+        axios.get(url,{params:obj}).then(callback);
+    },
+    //商品添加收藏
+    getLove(url,obj,callback){
+        axios.get(url,{params:obj}).then(callback);
+    },
+    //商品取消收藏
+    cancelLove(url,obj,callback){
+        axios.get(url,{params:obj}).then(callback)
+    },
+    //商品添加购物车
+    addCart(url,obj,callback){
+        axios.get(url,{params:obj}).then(callback)
+    },
+    //购物车删除商品
+    delCart(url,obj,callback){
+        axios.get(url,{params:obj}).then(callback)
+    },
+    //修改购物车中商品数量
+    changeCartNum(url,str,callback){
+        axios.post(url,str).then(callback);
+    },
+    //添加收货地址
+    addAddress(url,obj,callback){
+        axios.get(url,{params:obj}).then(callback);
+    },
+    //查找用户收货地址
+    getAddress(url,callback){
+        axios.get(url).then(callback);
+    },
+    //创建订单
+    addOrder(url,obj,callback){
+        axios.get(url,{params:obj}).then(callback)
+    },
+    //查找订单
+    getOrder(url,callback){
+        axios.get(url).then(callback)
+    },
+    //更新订单状态
+    updateOrder(url,obj,callback){
+        axios.get(url,{params:obj}).then(callback);
+    },
+    //用户登录
+    login(url,obj,callback){
+        //这里接收的数据会以查询字符串的形式传值: ?uname=tom&upwd=123
+        axios.get(url,{params:obj}).then(callback);
+    },
+    //用户注册
+    register(url,str,callback){
+        axios.post(url,str).then(callback);
+    },
+    //查找商品
+    getProduct(url,obj,callback){
+        axios.get(url,{params:obj}).then(callback);
+    },
+    //展示购物车
+    allCart(url,callback){
+        axios.get(url).then(callback);
+    },
+    // 展示收藏
+    allLove(url,callback){
+        axios.get(url).then(callback);
+    },
+    //搜索商品
+    searchPro(url,obj,callback){
+        axios.get(url,{params:obj}).then(callback);
+    },
+    //toast弹出提示
+    toast(msg){
+        if(msg!=undefined){
+            this.toast = msg;
+        }
+        this.show = true;
+        setTimeout(()=>{
+            this.show = false;
+        },3000);  
+    }
+}
