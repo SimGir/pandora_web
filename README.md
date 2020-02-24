@@ -10,7 +10,7 @@
 
 1. 克隆项目到本地
 
-  git clone https://github.com/SimGir/pandora_web.git
+	git clone https://github.com/SimGir/pandora_web.git
 
 2. 进入项目，安装依赖
 
