@@ -41,9 +41,8 @@ export default {
         register(){
             var user_name = this.uname;
             var user_pwd = this.upwd;
-            var url = "/register";
             var str = `user_name=${user_name}&user_pwd=${user_pwd}`;
-            var callback = (res)=>{
+            funs.register(str).then((res)=>{
                 //console.log(res);
                 if(res.data.code==-1){
                     console.log("注册失败")
@@ -51,8 +50,7 @@ export default {
                     alert("注册成功，前往登录");
                     this.$router.push("/login");
                 }
-            }
-            funs.register(url,str,callback);   
+            })
         }
     },
     mounted(){

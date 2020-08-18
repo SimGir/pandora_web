@@ -43,8 +43,7 @@ export default {
     methods:{
         // 获取页面数据
         load(){
-            let url = "/getlove";
-            let callback = (res)=>{
+            funs.allLove(url).then((res)=>{
                 //console.log(res);
                 if(res.data.code===1){
                     if(res.data.data.length!==0){
@@ -62,21 +61,17 @@ export default {
                         this.$router.push("/index");
                     }
                 }
-            }
-            funs.allLove(url,callback);
+            })
         },
         // 取消收藏
         cancelLove(pid){
             //console.log("pid:"+pid)
-            let url = "/cancellove";
             let obj = {
                 product_id:pid
             }
-            let callback = (res)=>{
-                //console.log(res)
+            funs.cancelLove(obj).then(()=>{
                 this.load();
-            }
-            funs.cancelLove(url,obj,callback);
+            })
         }
     }
 }

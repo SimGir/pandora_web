@@ -431,8 +431,7 @@
                     </li>
                 </ul>
             </div>
-        </div> 
-        <div class="toast" :class="show?'show':''">{{msg}}</div>
+        </div>
     </header>
 </template>
 <script>
@@ -440,33 +439,26 @@ import funs from "../assets/js/funs.js"
 export default {
     data(){
         return {
-            proName:"",
-            show:false,
-            msg:""
+            proName:""
         }
     },
     methods:{
         //搜索商品
         searchPro(){
-            if(this.proName==""){
+            if(this.proName===""){
                 return;
             }else{
-                var url = "/searchpro";
-                var obj = {title:this.proName};
-                var callback = (res)=>{
-                    //console.log(res)
-                    if(res.data.code==1){
-                        var pid = res.data.data[0].product_id;
-                        this.$router.push("/detail/"+pid);
-                    }else{
-                        this.show = true;
-                        this.msg = "没有查找到该商品";
-                        setTimeout(()=>{
-                            this.show = false;
-                        },3000);
+                var obj = {title: this.proName};
+                funs.searchPro(obj).then(
+                    (res)=>{
+                        if(res.data.success){
+                            var pid = res.data.data[0].product_id;
+                            this.$router.push("/detail/"+pid);
+                        }else{
+                            this.$store.dispatch("showToast",res.data.msg)
+                        }
                     }
-                }
-                funs.searchPro(url,obj,callback);
+                )
             }
         }
     }
@@ -478,26 +470,5 @@ export default {
 @import "//at.alicdn.com/t/font_1357872_a69stxrzzv.css";
 header{
     margin-bottom:100px;
-}
-.toast{
-    width:150px;
-    height:35px;
-    line-height: 35px;
-    border-radius: 5px;
-    font-size:16px;
-    position: fixed;
-    top:0;
-    right:0;
-    left:0;
-    bottom:0;
-    margin:auto;
-    background: rgba(0,0,0,0.7);
-    color:#fff;
-    z-index:2000;
-    text-align: center;
-    display:none;
-}
-.show{
-    display:block;
 }
 </style>

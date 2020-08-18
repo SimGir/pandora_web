@@ -50,18 +50,16 @@ export default {
                 return;
             }
             //发送ajax请求
-            var url = "/login";
             var obj = {user_name,user_pwd};
             //console.log(obj);
-            var callback = res=>{
+            funs.login(obj).then(res=>{
                 //console.log(res.data);
                 if(res.data.code<0){
                     alert("用户名或密码有误")
                 }else{
                     this.$router.push("/index");
                 }
-            }
-            funs.login(url,obj,callback);
+            })
         }
     }
 }

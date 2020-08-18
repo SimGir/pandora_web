@@ -22,27 +22,32 @@ Vue.use(Vuex)
 var store = new Vuex.Store({
 	//state中存储的是所有组件共用的数据，共享的
 	state:{
-		fa:12,
-		cartCount:0
+		toastText: "",
+		toastShow: false,
+		timerId: null
 	},
 	//修改共享数据(立即修改)
 	mutations:{
 		//定义修改共享数据的函数，实参state是存储数据的对象
-		subItem(state){
-			state.fa--;
-		},
-		clear(state){
-			state.fa=0;
-		},
-		addCount(state){
-			state.cartCount++;
-		},
-		clearCount(state){
-			state.cartCount=0;
+		hideToast(state){
+			state.toastShow = false
+			state.toastText = ""
 		}
 	},
-	//异步修改共享数据，设置定时器延迟调用mutations中的函数
+	//异步修改共享数据，若需要调用mutations中的函数，则将方法写在actions中
 	actions:{
+		// context是上下文对象，包含store属性
+		showToast(context, toastText){
+			context.state.toastShow = true
+			context.state.toastText = toastText
+			if(context.state.timerId){
+				clearTimeout(context.state.timerId)
+			}
+			context.state.timerId = setTimeout(()=>{
+				// 隐藏掉弹出的toast提示框
+				context.commit("hideToast")
+			},2000)
+		},
 		modifyFa:(context)=>{
 			//模拟延时操作
 			//context上下文对象，即$store
@@ -54,11 +59,11 @@ var store = new Vuex.Store({
 	//获取共享数据
 	getters:{
 		//定义获取共享数据的函数
-		getFa(state){
-			return state.fa;
+		getToastShow(state){
+			return state.toastShow
 		},
-		getCount(state){
-			return state.cartCount;
+		getToastText(state){
+			return state.toastText
 		}
 	}
 })

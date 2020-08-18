@@ -1,6 +1,5 @@
 <template>
     <div>
-        <pan-header></pan-header>
         <div class="container">
             <!-- banner start -->
             <div class="banner">
@@ -276,8 +275,6 @@
             </div>
             <!-- last part end-->  
         </div>
-        <toast :toast="toast" :show="show"></toast>
-        <pan-footer></pan-footer>
     </div>
 </template>
 
@@ -291,9 +288,7 @@ export default {
                 chuan:[],
                 ring:[],
                 earring:[]
-            },
-            toast:"",  //用户收藏商品提示语
-            show:false
+            }
         }
     },
     created(){
@@ -304,7 +299,11 @@ export default {
             this.pros = result.data;
             //console.log(this.pros);
         }
-        funs.getGift(url,obj,callback,this.fun1);
+        funs.getGift(obj).then(res=>{
+            this.pros = res.data;
+            //console.log(this.pros);
+        }).then(this.fun1)
+
     },
     mounted(){
         window.addEventListener("resize",this.updateProWidth);  
@@ -387,7 +386,6 @@ export default {
                 addCart.onclick = (e)=>{
                     var cart = e.target;
                     //console.log(cart);
-                    var url = "/addcart";
                     //获取商品的id
                     var i = cart.parentElement.dataset.id;
                     //获取商品所属的分类
@@ -396,9 +394,8 @@ export default {
                     var product_id = this.pros[category][i].product_id;
                     //console.log(product_id);
                     var obj = {product_id};
-                    var callback = (result)=>{
+                    funs.addCart(obj).then((result)=>{
                         //console.log(result)
-                        this.toast = result.data.msg;
                         if(result.data.code==-2){
                             var toLogin = confirm("您还未登录，请登录");
                             if(toLogin){
@@ -407,10 +404,9 @@ export default {
                                 this.$router.push("/index");
                             }
                         }else{
-                            funs.toast.call(this);
+                            this.$store.dispatch("showToast", result.data.msg)
                         }
-                    }
-                    funs.addCart(url,obj,callback);
+                    })
                 }
             }
             //找到所有class = love的元素
@@ -450,44 +446,36 @@ export default {
                         img.parentElement.querySelector("input").value="true";
                         
                         //发送请求，将数据添加到数据库
-                        var url = "/love";
                         var obj = {product_id};
-                        var callback = (result)=>{
+                        funs.getLove(obj).then((result)=>{
                             //console.log(result.data);
-                            this.toast = result.data.msg;
-                            //console.log(this.toast)
                             if(result.data.code==-2){
                                 var toLogin = confirm("您未登录，请登录");
                                 if(toLogin){
                                     this.$router.push("/login");
                                 }
                             }else{
-                                //将toast()中的this临时替换成这里的this，即new Vue
-                                funs.toast.call(this);
+                                this.$store.dispatch("showToast", result.data.msg)
                             }
-                        }
-                        funs.getLove(url,obj,callback);
+                        })
                     }else{
                         //已收藏的商品，再次点击时取消收藏，黑心变白心
                         img.src = "img/heart_1.png";
                         img.parentElement.querySelector("input").value = "false";
 
                         //发送请求，将数据添加到数据库
-                        var url = "/cancellove";
                         var obj = {product_id};
-                        var callback = (result)=>{
+                        funs.cancelLove(obj).then((result)=>{
                             //console.log(result.data);
-                            this.toast = result.data.msg;
                             if(result.data.code==-2){
                                 var toLogin = confirm("您未登录，请登录");
                                 if(toLogin){
                                     this.$router.push("/login");
                                 }
                             }else{
-                                funs.toast.call(this);
+                                this.$store.dispatch("showToast", result.data.msg)
                             }
-                        }
-                        funs.cancelLove(url,obj,callback);
+                        })
 
                     }
                 }

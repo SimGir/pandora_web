@@ -72,7 +72,6 @@
             <div class="w-100">
                 <img v-for="(detail,i) of proDetail.details" :key="i" :src="detail.details_img" alt="" class="w-100">
             </div>
-            <toast :toast="toast" :show="show"></toast>
         </div>
     </div>
 </template>
@@ -91,8 +90,6 @@ export default {
             pid:"1",
             big_img:"",
             right_img:"",
-            toast:"",
-            show:false
         }
     },
     watch:{
@@ -121,9 +118,8 @@ export default {
             this.$router.push("/detail/"+this.pid);
         },
         getAjax(){
-            var url = "/detail";
-            var product_id = this.product_id;
-            var callback = (result)=>{  //!!!!!因为函数内部要用到this，所以必须用箭头函数
+            var obj = {product_id: this.product_id};
+            funs.getDetail(obj).then((result)=>{  //!!!!!因为函数内部要用到this，所以必须用箭头函数
                 //console.log(result.data);
                 this.proDetail = result.data;
                 this.pid = this.product_id;
@@ -131,27 +127,22 @@ export default {
                 this.big_img = this.proDetail.pics[0].pics_big;
                 //将第一张小图保存下来作为选择规格处的显示图片
                 this.right_img = this.proDetail.pics[0].pics_small;
-            };
-            var obj = {product_id};
-            funs.getDetail(url,obj,callback);
+            })
         },
         //商品添加到购物车
         addCart(){
-            var url = "/addcart";
             var obj = {product_id:this.product_id};
-            var callback = (result)=>{
+            funs.addCart(obj).then((result)=>{
                 //console.log(result)
-                this.toast = result.data.msg;
                 if(result.data.code==-2){
                     var toLogin = confirm("您还未登录，请登录");
                     if(toLogin){
                         this.$router.push("/login");
                     }
                 }else{
-                    funs.toast.call(this);
+                    this.$store.dispatch("showToast", result.data.msg)
                 }
-            }
-            funs.addCart(url,obj,callback);
+            })
         },
         bigPhoto(i){
             var img = document.querySelector(".big_photo>img");

@@ -1,6 +1,5 @@
 <template>
   <div>
-    <pan-header></pan-header>
     <div class="container-fluid">
       <div class="top-content">
         <ul class="list-unstyled">
@@ -259,7 +258,6 @@
 			</div>
 		</div>
 	</div>
-    <pan-footer></pan-footer>
   </div>
 </template>
 

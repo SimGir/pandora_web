@@ -14,6 +14,7 @@
 
 2. 进入项目，安装依赖
 
+	cd pandora_web
 	npm install
 
 3. 启动项目

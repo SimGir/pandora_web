@@ -1,91 +1,77 @@
 import axios from "axios";
 
-export default{
+export default {
     //得到gift页商品并展示
-    getGift(url,obj,callback,fun1){
-        axios.get(url,{params:obj}).then(callback).then(fun1);
+    getGift(obj) {
+        return axios.get("/gift", { params: obj });
     },
     //得到detail页商品详情并展示
-    getDetail(url,obj,callback){
-        axios.get(url,{params:obj}).then(callback);
+    getDetail(obj) {
+        return axios.get("/detail", { params: obj });
     },
     //根据商品编号，查找多个商品的信息
-    getProduct(url,obj,callback){
-        axios.get(url,{params:obj}).then(callback);
+    getProduct(obj) {
+        return axios.get("/getproduct", { params: obj });
     },
     //商品添加收藏
-    getLove(url,obj,callback){
-        axios.get(url,{params:obj}).then(callback);
+    getLove(obj) {
+        return axios.get("/love", { params: obj });
     },
     //商品取消收藏
-    cancelLove(url,obj,callback){
-        axios.get(url,{params:obj}).then(callback)
+    cancelLove(obj) {
+        return axios.get("/cancellove", { params: obj });
     },
     //商品添加购物车
-    addCart(url,obj,callback){
-        axios.get(url,{params:obj}).then(callback)
+    addCart(obj) {
+        return axios.get("/addcart", { params: obj });
     },
     //购物车删除商品
-    delCart(url,obj,callback){
-        axios.get(url,{params:obj}).then(callback)
+    delCart(obj) {
+        return axios.get("/delcart", { params: obj });
     },
     //修改购物车中商品数量
-    changeCartNum(url,str,callback){
-        axios.post(url,str).then(callback);
+    changeCartNum(str) {
+        return axios.post("/changecartnum", str);
     },
     //添加收货地址
-    addAddress(url,obj,callback){
-        axios.get(url,{params:obj}).then(callback);
+    addAddress(obj) {
+        return axios.get("/addaddress", { params: obj });
     },
     //查找用户收货地址
-    getAddress(url,callback){
-        axios.get(url).then(callback);
+    getAddress() {
+        return axios.get("/getaddress");
     },
     //创建订单
-    addOrder(url,obj,callback){
-        axios.get(url,{params:obj}).then(callback)
+    addOrder(obj) {
+        return axios.get("/addorder", { params: obj });
     },
     //查找订单
-    getOrder(url,callback){
-        axios.get(url).then(callback)
+    getOrder() {
+        return axios.get("/getorder");
     },
     //更新订单状态
-    updateOrder(url,obj,callback){
-        axios.get(url,{params:obj}).then(callback);
+    updateOrder(obj) {
+        return axios.get("/updateorder", { params: obj });
     },
     //用户登录
-    login(url,obj,callback){
+    login(obj) {
         //这里接收的数据会以查询字符串的形式传值: ?uname=tom&upwd=123
-        axios.get(url,{params:obj}).then(callback);
+        return axios.get("/login", { params: obj });
     },
     //用户注册
-    register(url,str,callback){
-        axios.post(url,str).then(callback);
-    },
-    //查找商品
-    getProduct(url,obj,callback){
-        axios.get(url,{params:obj}).then(callback);
+    register(str) {
+        return axios.post("/register", str);
     },
     //展示购物车
-    allCart(url,callback){
-        axios.get(url).then(callback);
+    allCart() {
+        return axios.get("/getcart");
     },
     // 展示收藏
-    allLove(url,callback){
-        axios.get(url).then(callback);
+    allLove() {
+        return axios.get("/getlove");
     },
     //搜索商品
-    searchPro(url,obj,callback){
-        axios.get(url,{params:obj}).then(callback);
-    },
-    //toast弹出提示
-    toast(msg){
-        if(msg!=undefined){
-            this.toast = msg;
-        }
-        this.show = true;
-        setTimeout(()=>{
-            this.show = false;
-        },3000);  
+    searchPro(obj) {
+        return axios.get('/searchpro', { params: obj });
     }
 }
