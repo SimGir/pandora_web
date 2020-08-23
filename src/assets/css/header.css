@@ -3,10 +3,7 @@
     padding: 0;
     list-style: none;
 }
-a{
-    text-decoration: none;
-}
-a:hover{
+a, a:hover{
     text-decoration: none;
 }
 .header{
@@ -38,11 +35,10 @@ a:hover{
     box-sizing: border-box;
     background-color: #fff;
 }
-.header .hd-left .hd-search i{
-    position: absolute;
-    left: 15px;
-    color: #bebebe;
-    font-size: 28px;
+.header .hd-left .hd-search .search{
+    width: 20px;
+    height: 40px;
+    margin-left: 10px;
 }
 .header .hd-left .hd-search input[type=search]{
     width: 210px;
@@ -51,7 +47,7 @@ a:hover{
     font-size: 12px;
     box-sizing: border-box;
     position: absolute;
-    left: 45px;
+    left: 40px;
     outline: 0;
     border: 0px;
 }
@@ -85,87 +81,42 @@ a:hover{
     height: 100%;
 }
 .header .hd-right{
-    width: 210px;
-    height: 29px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 120px;
     float: right;
     position: relative;
-    margin-top: 14px;
     z-index: 1000;
 }
-.header .hd-right>ul>li{
-    float: left;
-    display: block;
-    font-size: 12px;
-    margin-right: 18px;
-    padding-bottom: 10px;
+.header .hd-right img {
+    width: 25px;
+    margin-bottom: 5px;
+}
+.header .hd-right .login-part {
+    display: flex;
+    flex-direction: column;
 }
 .header .hd-right .user-link{
     position: absolute;
-    width: 260px;
-    height: 300px;
     border: 1px solid rgba(2,2,3,.1);
     box-shadow: 0 20px 20px 1px rgba(51,51,51,.2);
     padding: 20px 0;
-    top: 117%;
+    top: 30px;
     z-index: 999;
     box-sizing: border-box;
     background: #fff;
-    left: -25%;
     display: none;
+    transform: translateX(calc(-50% + 12px));
 }
-.header .hd-right>ul>li:nth-child(2):hover .user-link{
+.header .hd-right .login-part:hover .user-link{
     display: block;
 }
-.header .hd-right>ul>li:nth-child(2) .user-link:hover{
-    display: block;
-}
-.header .hd-right .user-link .user-link-brank{
-    width: 0;
-    height: 0;
-    position: absolute;
-    border-color: transparent;
-    border-width: 12px;
-    border-top-width: 0;
-    border-bottom: 9px solid #ccc;
-    border-style: solid;
-    font-size: 0;
-    line-height: 0;
-    top: -9px;
-    left: 44%;
-}
-.header .hd-right .user-link .user-link-brank:before{
-    content: '';
-    width: 0;
-    height: 0;
-    position: absolute;
-    border-color: transparent;
-    border-width: 12px;
-    border-top-width: 0;
-    border-bottom: 9px solid #fff;
-    border-style: solid;
-    font-size: 0;
-    line-height: 0;
-    top: 1px;
-    left: -12px;
-}
+
 .header .hd-right .user-link .buttons{
     padding: 0 20px 20px;
-    border-bottom: 1px solid #e6e6e6;
 }
-.header .hd-right .user-link .login{
-    width: 220px;
-    background: #333;
-    color: #fff;
-    height: 35px;
-    margin: 0 auto;
-    text-align: center;
-    line-height: 35px;
-    cursor: pointer;
-    transition: all .3s ease-in-out;
-}
-.header .hd-right .user-link .login:hover{
-    background-color: #515151;
-}
+
 .header .hd-right .user-link .register{
     width: 220px;
     background-color: #fff;
@@ -178,14 +129,16 @@ a:hover{
     color: #000;
     margin-top: 10px;
     transition: all 0.3s ease-in-out;
+    font-size: 16px;
 }
 .header .hd-right .user-link .sel-order{
     margin: 0 auto;
     text-align: center;
-    margin-top: 20px;
+    margin-top: 30px;
 }
 .header .hd-right .user-link .sel-order a{
     text-decoration: underline;
+    font-size: 14px;
 }
 .header .hd-right .user-link .register:hover{
     background-color: #333;
@@ -194,484 +147,29 @@ a:hover{
 .header .hd-right .user-link .register:hover a{
     color: #fff !important;
 }
-.header .hd-right .user-link .buttons .login a{
-    color: #fff;
-}
+
 .header .hd-right .user-link .buttons .register a{
     color:#000;
     transition: all 0.3s ease-in-out;
-}
-.header .hd-right>ul>li a{
-    color: #333;
-}
-.header .hd-right>ul>li a i{
-    position: absolute;
-    font-size: 24px;
-    color: #aeaeae;
-    top: -10px;
-}
-.header .hd-right>ul>li a .icon-02{
-    right: 60px;
-}
-.header .hd-right>ul>li a .icon-56{
-    right: 10px;
-}
-.header .hd-right li .text{
-    padding: 30px 40px 10px;
-    text-align: center;
+    font-size: 16px;
 }
 .nav{
     background-color: #fff !important;
     width: 100%;
-    height: 49px;
-    border-bottom: 1px solid #e5e5e5;
+    height: 48px;
     position: fixed;
     top: 100px;
     box-shadow: 0 2px 2px rgba(48,37,52,.2);
     z-index: 99;
 }
 .nav .nav-center{
-    background-color: #fff !important;
-    width: 990px;
-    height: 48px;
-    line-height: 48px;
-    margin: 0 auto;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    padding: 0 100px;
 }
-.nav .nav-center ul li{
-    white-space: nowrap;
-    float: left;
-    background: #fff;
-    z-index: 1000;
-}
-.nav .nav-center>ul li a{
-    padding: 0 25px;
-    color: #706d75;
-}
-.nav .nav-center ul li a span{
-    color: #333;
+.nav .nav-center span {
     font-size: 14px;
-}
-.nav .nav-center ul li .menu,
-.nav .nav-center ul li .menu1,
-.nav .nav-center ul li .menu2,
-.nav .nav-center ul li .menu3,
-.nav .nav-center ul li .menu4,
-.nav .nav-center ul li .menu5,
-.nav .nav-center ul li .menu6,
-.nav .nav-center ul li .menu7,
-.nav .nav-center ul li .menu8,
-.nav .nav-center ul li .menu9{
-    border: 1px solid #d2cfd3;
-    position: absolute;
-    margin: -1px;
-    display: none;
-    background: #fff;
-    z-index: 999;
-}
-.nav .nav-center ul li .menu,
-.nav .nav-center ul li .menu1{
-    width: 449px;
-    height: 250px;
-}
-.nav .nav-center ul li .menu2{
-    width: 957px;
-    height: 325px;
-    left: 176px;
-}
-.nav .nav-center ul li .menu3{
-    width: 612px;
-    height: 325px;
-}
-.nav .nav-center ul li .menu4{
-    width: 594px;
-    height: 325px;
-    left: 496px;
-}
-.nav .nav-center ul li .menu5{
-    width: 594px;
-    height: 325px;
-    left: 196px;
-}
-.nav .nav-center ul li .menu6{
-    width: 594px;
-    height: 325px;
-    left: 296px;
-}
-.nav .nav-center ul li .menu7{
-    width: 501px;
-    height: 435px;
-    left: 460px;
-}
-.nav .nav-center ul li .menu8{
-    width: 687px;
-    height: 341px;
-    left: 352px;
-}
-.nav .nav-center ul li .menu9{
-    width: 462px;
-    height: 464px;
-    left: 655px;
-}
-.nav .nav-center ul .n-li1:hover .menu,
-.nav .nav-center ul .n-li2:hover .menu1,
-.nav .nav-center ul .n-li3:hover .menu2,
-.nav .nav-center ul .n-li4:hover .menu3,
-.nav .nav-center ul .n-li5:hover .menu4,
-.nav .nav-center ul .n-li6:hover .menu5,
-.nav .nav-center ul .n-li7:hover .menu6,
-.nav .nav-center ul .n-li8:hover .menu7,
-.nav .nav-center ul .n-li9:hover .menu8,
-.nav .nav-center ul .n-li10:hover .menu9{
-    margin-top: -5px;
-    display: block;
-}
-.nav .nav-center ul .n-li1:hover .menu .blank,
-.nav .nav-center ul .n-li2:hover .menu1 .blank,
-.nav .nav-center ul .n-li3:hover .menu2 .blank,
-.nav .nav-center ul .n-li4:hover .menu3 .blank,
-.nav .nav-center ul .n-li5:hover .menu4 .blank,
-.nav .nav-center ul .n-li6:hover .menu5 .blank,
-.nav .nav-center ul .n-li7:hover .menu6 .blank,
-.nav .nav-center ul .n-li8:hover .menu7 .blank,
-.nav .nav-center ul .n-li9:hover .menu8 .blank,
-.nav .nav-center ul .n-li10:hover .menu9 .blank{
-    background: #fff;
-    position: absolute;
-    top: -12px;
-    height: 5px;
-}
-.nav .nav-center ul .n-li1:hover .menu .blank{
-    width: 106px;
-}
-.nav .nav-center ul .n-li2:hover .menu1 .blank{
-    width: 134px;
-}
-.nav .nav-center ul .n-li3:hover .menu2 .blank{
-    width: 78px;
-    left: 245px;
-    top: -3px;
-}
-.nav .nav-center ul .n-li4:hover .menu3 .blank{
-    width: 78px;
-    top: -3px;
-}
-.nav .nav-center ul .n-li5:hover .menu4 .blank{
-    width: 120px;
-    left: 81px;
-    top: -3px;
-}
-.nav .nav-center ul .n-li6:hover .menu5 .blank{
-     width: 78px;
-     left: 501px;
-     top: -3px;
-}
-.nav .nav-center ul .n-li7:hover .menu6 .blank{
-    width: 78px;
-    left: 479px;
-    top: -3px;
-}
-.nav .nav-center ul .n-li8:hover .menu7 .blank{
-    width: 106px;
-    left: 393px;
-    top: -3px;
-}
-.nav .nav-center ul .n-li9:hover .menu8 .blank{
-     width: 78px;
-     left: 607px;
-     top: -3px;
-}
-.nav .nav-center ul .n-li10:hover .menu9 .blank{
-    width: 78px;
-    left: 382px;
-    top: -3px;
-}
-.nav .nav-center ul .n-li1:hover,
-.nav .nav-center ul .n-li2:hover,
-.nav .nav-center ul .n-li3:hover,
-.nav .nav-center ul .n-li4:hover,
-.nav .nav-center ul .n-li5:hover,
-.nav .nav-center ul .n-li6:hover,
-.nav .nav-center ul .n-li7:hover,
-.nav .nav-center ul .n-li8:hover,
-.nav .nav-center ul .n-li9:hover,
-.nav .nav-center ul .n-li10:hover{
-    border: 1px solid #d2cfd3;
-}
-.nav .nav-center ul li .menu>i,
-.nav .nav-center ul li .menu1>i,
-.nav .nav-center ul li .menu2>i,
-.nav .nav-center ul li .menu3>i,
-.nav .nav-center ul li .menu4>i,
-.nav .nav-center ul li .menu5>i,
-.nav .nav-center ul li .menu6>i,
-.nav .nav-center ul li .menu7>i,
-.nav .nav-center ul li .menu8>i,
-.nav .nav-center ul li .menu9>i{
-    position: absolute;
-    top: -30px;
-}
-.nav .nav-center ul li .menu>i{
-    left: 45px;
-}
-.nav .nav-center ul li .menu1>i{
-    left: 60px;
-}
-.nav .nav-center ul li .menu2>i{
-    left: 280px;
-}
-.nav .nav-center ul li .menu3>i{
-    left: 30px;
-}
-.nav .nav-center ul li .menu4>i{
-    left: 135px;
-}
-.nav .nav-center ul li .menu5>i{
-    left: 540px;
-}
-.nav .nav-center ul li .menu6>i{
-    left: 512px;
-}
-.nav .nav-center ul li .menu7>i{
-    left: 440px;
-}
-.nav .nav-center ul li .menu8>i{
-    left: 638px;
-}
-.nav .nav-center ul li .menu9>i{
-    left: 413px;
-}
-.nav .nav-center ul li .menu div,
-.nav .nav-center ul li .menu1 div,
-.nav .nav-center ul li .menu2 .ig{
-    float: right;
-    margin-right: 10px;
-    margin-top: 10px;
-}
-.nav .nav-center ul li .menu3 .menu3-right,
-.nav .nav-center ul li .menu4 .menu4-right,
-.nav .nav-center ul li .menu5 .menu5-right,
-.nav .nav-center ul li .menu6 .menu6-right,
-.nav .nav-center ul li .menu7 .menu7-right,
-.nav .nav-center ul li .menu8 .menu8-right,
-.nav .nav-center ul li .menu9 .menu9-right{
-    float: right;
-    margin-top: 10px;
-    margin-right: 10px;
-}
-.nav .nav-center ul li .menu2 .d1{
-    width: 486px;
-    height: 323px;
-    float: left;
-    margin-left: 15px;
-    padding-top: 10px;
-    padding-left: 10px;
-    border-right: 1px solid #d2cfd3;
-}
-.nav .nav-center ul li .menu2 .d1 .d1-menu1,
-.nav .nav-center ul li .menu2 .d1 .d1-menu2,
-.nav .nav-center ul li .menu2 .d1 .d1-menu3{
-    float: left;
-    width: 144px;
-    height: 140px;
-}
-.nav .nav-center ul li .menu2 .d1 .d1-menu1 p,
-.nav .nav-center ul li .menu2 .d1 .d1-menu2 p,
-.nav .nav-center ul li .menu2 .d1 .d1-menu3 p{
-    margin-bottom: 16px;
-    height: 10px;
-    font-size: 12px;
     cursor: pointer;
-}
-.nav .nav-center ul li .menu2 .d1 ul{
-    margin-top:80px;
-    height: 20px;
-    float: left;
-}
-.nav .nav-center ul li .menu2 .d1 ul li{
-    height: 20px;
-    font-size: 12px;
-    float: left;
-    margin-right: 20px;
-}
-.nav .nav-center ul li .menu3 .menu3-left{
-    float: left;
-    width: 250px;
-    height: 325px;
-    border-right: 1px solid #d2cfd3;
-}
-.nav .nav-center ul li .menu1 .menu1-left,
-.nav .nav-center ul li .menu2 .menu2-left,
-.nav .nav-center ul li .menu4 .menu4-left,
-.nav .nav-center ul li .menu .menu-left{
-    float: left;
-    width: 230px;
-    height: 325px;
-}
-.nav .nav-center ul li .menu2 .menu2-left{
-    border-right: 1px solid #d2cfd3;
-}
-.nav .nav-center ul li .menu4 .menu4-left{
-    border-right: 1px solid #d2cfd3;
-}
-.nav .nav-center ul li .menu5 .menu5-left{
-    float: left;
-    width: 230px;
-    height: 323px;
-    border-right: 1px solid #d2cfd3;
-}
-.nav .nav-center ul li .menu6 .menu6-left{
-     float: left;
-     width: 230px;
-     height: 325px;
-     border-right: 1px solid #d2cfd3;
-}
-.nav .nav-center ul li .menu7 .menu7-left{
-    float: left;
-    width: 260px;
-    height: 435px;
-    border-right: 1px solid #d2cfd3;
-}
-.nav .nav-center ul li .menu8 .menu8-left{
-    float: left;
-    width: 250px;
-    height: 341px;
-    border-right: 1px solid #d2cfd3;
-}
-.nav .nav-center ul li .menu9 .menu9-left{
-    float: left;
-    width: 243px;
-    height: 464px;
-}
-.nav .nav-center ul li .menu3 .menu3-center{
-    width: 131px;
-    height: 323px;
-    float: left;
-}
-.nav .nav-center ul li .menu3 .menu3-left>ul{
-    margin-left: 20px;
-}
-.nav .nav-center ul li .menu3 .menu3-center>ul{
-    margin-left: 10px;
-}
-.nav .nav-center ul li .menu3 .menu3-left>ul>li{
-    width: 220px;
-}
-.nav .nav-center ul li .menu .menu-left>ul>li,
-.nav .nav-center ul li .menu2 .menu2-left>ul>li,
-.nav .nav-center ul li .menu1 .menu1-left>ul>li,
-.nav .nav-center ul li .menu3 .menu3-left>ul>li,
-.nav .nav-center ul li .menu4 .menu4-left>ul>li,
-.nav .nav-center ul li .menu5 .menu5-left>ul>li,
-.nav .nav-center ul li .menu6 .menu6-left>ul>li,
-.nav .nav-center ul li .menu7 .menu7-left>ul>li,
-.nav .nav-center ul li .menu8 .menu8-left>ul>li,
-.nav .nav-center ul li .menu9 .menu9-left>ul>li{
-    float: left;
-    width: 200px;
-    height: 31px;
-    line-height: 31px;
-    border-bottom: 1px solid #ededed;
-}
-.nav .nav-center ul li .menu8 .menu8-left>ul>li{
-    padding-left: 10px;
-}
-.nav .nav-center ul li .menu3 .menu3-center>ul>li{
-    width: 80px;
-    height: 30px;
-    font-size: 12px;
-}
-.nav .nav-center ul li .menu .menu-left>ul>li>a,
-.nav .nav-center ul li .menu1 .menu1-left>ul>li>a,
-.nav .nav-center ul li .menu2 .menu2-left>ul>li>a,
-.nav .nav-center ul li .menu3 .menu3-left>ul>li>a,
-.nav .nav-center ul li .menu4 .menu4-left>ul>li>a,
-.nav .nav-center ul li .menu5 .menu5-left>ul>li>a,
-.nav .nav-center ul li .menu6 .menu6-left>ul>li>a,
-.nav .nav-center ul li .menu7 .menu7-left>ul>li>a,
-.nav .nav-center ul li .menu8 .menu8-left>ul>li>a,
-.nav .nav-center ul li .menu9 .menu9-left>ul>li>a{
-    font-size: 12px;
-}
-.nav .nav-center ul li .menu8 .menu8-left>ul>li>a{
-    padding: 0;
-}
-.nav .nav-center ul li .menu .menu-left>ul,
-.nav .nav-center ul li .menu1 .menu1-left>ul,
-.nav .nav-center ul li .menu2 .menu2-left>ul,
-.nav .nav-center ul li .menu4 .menu4-left>ul,
-.nav .nav-center ul li .menu5 .menu5-left>ul,
-.nav .nav-center ul li .menu6 .menu6-left>ul,
-.nav .nav-center ul li .menu7 .menu7-left>ul,
-.nav .nav-center ul li .menu9 .menu9-left>ul{
-    margin-left: 20px;
-    margin-top: 15px;
-}
-.nav .nav-center ul li .menu8 .menu8-left ul{
-    margin-left: 15px;
-    margin-top: -10px;
-}
-.nav .nav-center ul li .menu8 .menu8-left>p{
-    font-size: 18px;
-    font-style: italic;
-    width: 200px;
-    margin-left: 15px;
-    line-height: 28px;
-    margin-top: 10px;
-    border-bottom: 1px solid #d2cfd3;
-    color: #8f8790;
-}
-.nav .nav-center ul li .menu8 .menu8-center>p{
-    font-size: 18px;
-    font-style: italic;
-    width: 200px;
-    margin-left: 15px;
-    line-height: 28px;
-    margin-top: 10px;
-    border-bottom: 1px solid #d2cfd3;
-    color: #8f8790;
-}
-.nav .nav-center ul li .menu4 .menu4-center,
-.nav .nav-center ul li .menu5 .menu5-center,
-.nav .nav-center ul li .menu6 .menu6-center{
-    width: 121px;
-    height: 323px;
-    float: left;
-}
-.nav .nav-center ul li .menu8 .menu8-center{
-    width: 212px;
-    height: 323px;
-    float: left;
-}
-.nav .nav-center ul li .menu4 .menu4-center>ul{
-    margin-left: 20px;
-    margin-top: 30px;
-}
-.nav .nav-center ul li .menu5 .menu5-center>ul,
-.nav .nav-center ul li .menu6 .menu6-center>ul{
-    margin-left: 30px;
-    margin-top: 20px;
-}
-.nav .nav-center ul li .menu4 .menu4-center>ul>li,
-.nav .nav-center ul li .menu5 .menu5-center>ul>li,
-.nav .nav-center ul li .menu6 .menu6-center>ul>li{
-    width: 80px;
-    height: 30px;
-    font-size: 12px;
-}
-.nav .nav-center ul li .menu8 .menu8-center .menu8-ct-left{
-    width: 82px;
-    height: 162px;
-    float: left;
-}
-.nav .nav-center ul li .menu8 .menu8-center .menu8-ct-right{
-    width: 99px;
-    height: 162px;
-    float: left;
-    margin-left: 10px;
-}
-.nav .nav-center ul li .menu8 .menu8-center .menu8-ct-left p,
-.nav .nav-center ul li .menu8 .menu8-center .menu8-ct-right p{
-    margin-left: 30px;
-    font-size: 12px;
-    height: 12px;
 }

@@ -112,6 +112,7 @@ export default {
     };
   },
   created() {
+    document.documentElement.scrollTop = 0;
     this.getAddress();
     //console.log("created中的this：",this)
     //为一个自定义的事件名to_order绑定一个方法，to_order事件在Cart.vue中调用
@@ -170,11 +171,11 @@ export default {
               return;
             }
           }
-        } else if(res.data.code === -1) {
+        } else if (res.data.code === -1) {
           // 当前用户还未添加收货地址，禁用提交订单按钮
           this.canSubmit = false;
-        }else {
-          this.$store.dispatch("showToast", res.data.msg)
+        } else {
+          this.$store.dispatch("showToast", res.data.msg);
         }
       });
     },
@@ -190,7 +191,7 @@ export default {
 
       funs.addAddress(obj).then((res) => {
         //console.log(res)
-        this.$store.dispatch("showToast", res.data.msg)
+        this.$store.dispatch("showToast", res.data.msg);
         //重新查找地址
         this.getAddress();
         //重置输入框

@@ -283,12 +283,26 @@ iframe{
     position: absolute;
     bottom: 70px;
     left: 400px;
+    text-align: center;
 }
 #lbt .lbt-content>p,
 .tj-img .img-detail>p,
 .tj-img .img-detail1>p{
     font-size: 26px;
     color: #000000;
+}
+#lbt .lbt-content .black-btn, .white-btn {
+    width: 250px;
+    height: 30px;
+    line-height: 30px;
+    border: 1px solid;
+    text-align:center;
+    margin-top: 15px;
+}
+#lbt .lbt-content .white-btn {
+    border:1px solid white;
+    color:white;
+
 }
 #lbt .lbt-content .buy1{
     text-decoration: none !important;
@@ -317,29 +331,22 @@ iframe{
     text-align: center;
     padding: 20px 0 4px;
 }
-.content-asset a span{
-    color: #2d2232;
-}
-.content-asset a:first-child span{
+.content-asset span:first-child{
     font-size: 20px;
 }
-.content-asset a:last-child span{
+.content-asset span:last-child{
     font-size: 12px;
-}
-.content-asset a:first-child{
-    text-align: center;
-}
-.content-asset a:last-child{
     float: right;
 }
-.content-asset a:last-child:hover{
+.content-asset span:last-child:hover{
     text-decoration: underline;
     color: #2d2232;
+    cursor: pointer;
 }
 .pop-com{
     width: 960px;
     margin: 0 auto;
-    height: 410px;
+    height: 380px;
     position: relative;
     border: 1px solid #dedfe0;
     border-width: 1px 0;
@@ -352,8 +359,11 @@ iframe{
     height: 100%;
     border-right: 1px solid #dedfe0;
 }
+.pop-com>div:first-child{
+    border-left: 1px solid #dedfe0;
+}
 .pop-com>div:last-child{
-    border-right: 0;
+    border-right: 1px solid #dedfe0;
 }
 .pop-com>div>.blank{
     width: 76px;
@@ -394,7 +404,7 @@ iframe{
 }
 .pop-com>div>.product-price{
     height: 32px;
-    margin-top: 32px;
+    margin-top: 10px;
     text-align: center;
 }
 .pop-com>div>.product-price span{
@@ -411,6 +421,9 @@ iframe{
     margin-bottom: 20px;
     display: flex;
     justify-content: space-between;
+}
+.tj-img1 div {
+    position: relative;
 }
 .tj-img1 img{
     width: 460px;
@@ -452,7 +465,7 @@ iframe{
     width: 400px;
     height: 30px;
     position: absolute;
-    top: 330px;
+    top: 310px;
     left: 50%;
     margin-left: -200px;
 }
@@ -464,11 +477,12 @@ iframe{
 }
 .hlsx .hlsx-buy{
     position: absolute;
-    top: 390px;
+    top: 355px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 150px;
     height: 35px;
     line-height: 35px;
-    left: 50%;
-    margin-left: -47px;
     border: 1px solid #f3afb4;
     cursor: pointer;
     padding: 0 20px;
@@ -488,21 +502,17 @@ iframe{
 .hlsx .hlsx-buy p{
     text-align: center;
     color: #fff;
-    font-size: 12px;
+    font-size: 14px;
 }
 .tj-img1 .lxzb,
 .tj-img1 .cxjz{
-    width: 380px;
+    width: 350px;
     height: 30px;
     position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
     text-align: center;
     top: 300px;
-}
-.tj-img1 .lxzb{
-    left: 40px;
-}
-.tj-img1 .cxjz{
-    right: 40px;
 }
 .tj-img1 .lxzb p,
 .tj-img1 .cxjz p{
@@ -511,9 +521,12 @@ iframe{
 }
 .tj-img1 .lxzb-buy,
 .tj-img1 .cxjz-buy{
+    width: 150px;
     height: 35px;
     position: absolute;
     top: 360px;
+    left: 50%;
+    transform: translateX(-50%);
     line-height: 35px;
     border: 1px solid #f3afb4;
     cursor: pointer;
@@ -541,16 +554,10 @@ iframe{
 .tj-img1 .cxjz-buy:hover p{
     color: #000;
 }
-.tj-img1 .lxzb-buy{
-    left: 180px;
-}
-.tj-img1 .cxjz-buy{
-    right: 180px;
-}
 .tj-img1 .lxzb-buy p,
 .tj-img1 .cxjz-buy p{
     color:#333;
-    font-size: 12px;
+    font-size: 14px;
     text-align: center;
 }
 .ci-module{

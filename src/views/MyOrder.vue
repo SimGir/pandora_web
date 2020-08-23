@@ -24,10 +24,12 @@
             <div class="col two">
               <button
                 class="mr-2"
+                style="padding: 0 3px;"
                 :disabled="order.status!==1"
                 @click="updateOrder(order.order_id,i,4)"
               >取消订单</button>
               <button
+                style="padding: 0 3px;"
                 :disabled="order.status===4||order.status===3"
                 @click="updateOrder(order.order_id,i,3)"
               >确认收货</button>
@@ -96,128 +98,130 @@
 import funs from "../assets/js/funs";
 
 export default {
-    data(){
-        return {
-            orders:[],
-            details:[],
-            adds:[],
-            pids:[],
-            pros:[],
-            hasOrders:false
-        }
-    },
-    created(){
+  data() {
+    return {
+      orders: [],
+      details: [],
+      adds: [],
+      pids: [],
+      pros: [],
+      hasOrders: false,
+    };
+  },
+    created() {
+        document.documentElement.scrollTop = 0;
         this.getOrder();
     },
-    methods:{
-        //查找我的订单
-        getOrder(){
-            //获取我的订单列表
-            funs.getOrder().then(res=>{
-                if(res.data.code==-2){
-                    var toLogin = confirm("您还未登录，请登录");
-                    if(toLogin){
-                        this.$router.push("/login");
-                    }else{
-                        this.$router.push("/index");
-                    }
-                }else{
-                    this.hasOrders = true;
-                    this.orders = res.data.data.orders;
-                    this.details = res.data.data.details;
-                    for(var i=0;i<this.details.length;i++){
-                        var bol = false;
-                        for(var j=0;j<this.pids.length;j++){
-                            if(this.pids[j]===this.details[i].product_id){
-                                bol = true;
-                            }
-                        }
-                        if(!bol){
-                            this.pids.push(this.details[i].product_id)
-                        }
-                    }
-
-                    this.getAddress();
-                    this.getProduct();
-                }
-            })
-        },
-        //查找订单地址
-        getAddress(){
-            // 查找用户地址
-            funs.getAddress().then(res=>{
-                if(res.data.success){
-                    this.adds = res.data.data
-                    // console.log(this.adds);
-                }
-            })
-        },
-        //查找商品信息
-        getProduct(){
-            // 查找商品详情
-            var obj = {
-                pids: this.pids
+    methods: {
+    //查找我的订单
+    getOrder() {
+      //获取我的订单列表
+      funs.getOrder().then((res) => {
+        if (res.data.code == -2) {
+          var toLogin = confirm("您还未登录，请登录");
+          if (toLogin) {
+            this.$router.push("/login");
+          } else {
+            this.$router.push("/index");
+          }
+        } else {
+          this.orders = res.data.data.orders || [];
+          this.details = res.data.data.details || [];
+          this.orders.length > 0 && (this.hasOrders = true);
+          for (var i = 0; i < this.details.length; i++) {
+            var bol = false;
+            for (var j = 0; j < this.pids.length; j++) {
+              if (this.pids[j] === this.details[i].product_id) {
+                bol = true;
+              }
             }
-            funs.getProduct(obj).then((res)=>{
-                if(res.data.data.length>0){
-                    this.pros = res.data.data;
-                    //console.log(this.pros)
-                }
-            })
-        },
-        //取消订单，更新订单状态
-        updateOrder(order_id,i,status){
-            var obj = {};
-            //console.log(order_id)
-            //取消订单
-            if(status===4){
-                obj = {
-                    order_id,
-                    deliver_time:"",
-                    received_time:"",
-                    status
-                }
-            }else if(status===3){  //确认收货
-                var received_time = new Date().getTime();
-                obj = {
-                    order_id,
-                    deliver_time:"",
-                    received_time,
-                    status:""
-                }
+            if (!bol) {
+              this.pids.push(this.details[i].product_id);
             }
+          }
 
-            funs.updateOrder(obj).then(res=>{
-                //更新视图中的订单状态
-                this.orders[i].status = status;
-                //console.log(res)
-            })
+          this.getAddress();
+          this.getProduct();
         }
+      });
     },
-    filters:{
-        showStatus(val){
-            switch(val){
-                case 1:{
-                    return "等待发货"
-                    break;
-                }
-                case 2:{
-                    return "运输中"
-                    break;
-                }
-                case 3:{
-                    return "已签收"
-                    break;
-                }
-                case 4:{
-                    return "已取消"
-                    break;
-                }
-            }
-            
+    //查找订单地址
+    getAddress() {
+      // 查找用户地址
+      funs.getAddress().then((res) => {
+        if (res.data.code === 1) {
+          this.adds = res.data.data;
+          console.log(this.adds);
         }
-    }
-}
+      });
+    },
+    //查找商品信息
+    getProduct() {
+      // 查找商品详情
+      var obj = {
+        pids: this.pids,
+      };
+      this.pids.length > 0 &&
+        funs.getProduct(obj).then((res) => {
+          if (res.data.data.length > 0) {
+            this.pros = res.data.data;
+            //console.log(this.pros)
+          }
+        });
+    },
+    //取消订单，更新订单状态
+    updateOrder(order_id, i, status) {
+      var obj = {};
+      //console.log(order_id)
+      //取消订单
+      if (status === 4) {
+        obj = {
+          order_id,
+          deliver_time: "",
+          received_time: "",
+          status,
+        };
+      } else if (status === 3) {
+        //确认收货
+        var received_time = new Date().getTime();
+        obj = {
+          order_id,
+          deliver_time: "",
+          received_time,
+          status: "",
+        };
+      }
+
+      funs.updateOrder(obj).then((res) => {
+        //更新视图中的订单状态
+        this.orders[i].status = status;
+        //console.log(res)
+      });
+    },
+  },
+  filters: {
+    showStatus(val) {
+      switch (val) {
+        case 1: {
+          return "等待发货";
+          break;
+        }
+        case 2: {
+          return "运输中";
+          break;
+        }
+        case 3: {
+          return "已签收";
+          break;
+        }
+        case 4: {
+          return "已取消";
+          break;
+        }
+      }
+    },
+  },
+};
 </script>
 <style scoped>
 .outer {

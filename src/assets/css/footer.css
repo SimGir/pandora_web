@@ -1,6 +1,3 @@
-a{
-    text-decoration: none;
-}
 .bottom-email{
     background-color: #fff;
     width: 100%;
@@ -82,42 +79,25 @@ a{
     display:block;
     clear:both;
 }
-.footer .f-content .list1,
-.footer .f-content .list2,
-.footer .f-content .list3,
-.footer .f-content .list4{
+
+.footer .f-content .list{
     width: 230px;
     margin-top: 20px;
     margin-left: 10px;
     float: left;
 }
-.footer .f-content .list1 p,
-.footer .f-content .list2 p,
-.footer .f-content .list3 p,
-.footer .f-content .list4 p{
+.footer .f-content .list p{
     font-size: 13px;
     font-weight: bold;
     color: #fff;
 }
-.footer .f-content .list1 ul li,
-.footer .f-content .list2 ul li,
-.footer .f-content .list3 ul li,
-.footer .f-content .list4 ul li:first-child{
-    margin-top: 0px;
-}
-.footer .f-content .list4 ul li:last-child{
-    margin-top: -2px;
-}
-.footer .f-content .list1 ul li a,
-.footer .f-content .list2 ul li a,
-.footer .f-content .list3 ul li a,
-.footer .f-content .list4 ul li a span{
+.footer .f-content .list li, .footer .f-content .list span{
     color: #fff;
-    font-size: 11px;
 }
-.footer .f-content .list4 ul li a img{
+.footer .f-content .list ul li img{
     width: 22px;
     height: 18px;
+    margin-right: 5px;
 }
 footer>a{
     position: fixed;

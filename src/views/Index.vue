@@ -20,22 +20,14 @@
             <img src="img/lbt1.jpg" alt />
             <div class="lbt-content">
               <p>浪漫桃花系列</p>
-              <a class="buy1" href>
-                <div>
-                  <p>立即选购</p>
-                </div>
-              </a>
+              <div class="black-btn">立即选购</div>
             </div>
           </div>
           <div class="carousel-item">
-            <img src="img/lbt2.jpg" alt />
+            <img width="960px" height="460px" src="img/lbt2.png" alt />
             <div class="lbt-content">
-              <p>秋季新款系列</p>
-              <a class="buy1" href>
-                <div>
-                  <p>立即选购</p>
-                </div>
-              </a>
+              <p style="color:white">秋季新款系列</p>
+              <div class="white-btn">立即选购</div>
             </div>
           </div>
         </div>
@@ -53,12 +45,8 @@
         </a>
       </div>
       <div class="content-asset">
-        <a href="#">
-          <span>人气推荐</span>
-        </a>
-        <a href="#">
-          <span>更多</span>
-        </a>
+        <span>人气推荐</span>
+        <span>更多</span>
       </div>
       <div class="pop-com">
         <div>
@@ -267,7 +255,10 @@ export default {
 		return {
 			action:"log"
 		}
-	}
+  },
+  created() {
+    document.documentElement.scrollTop = 0;
+  }
 };
 </script>
 <style scoped>

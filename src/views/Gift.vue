@@ -292,7 +292,8 @@ export default {
         }
     },
     created(){
-        var url = "/gift";
+        // 回顶部
+        document.documentElement.scrollTop = 0;
         var page_name="gift";
         var obj = {page_name};
         var callback = (result)=>{

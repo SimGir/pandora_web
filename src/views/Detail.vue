@@ -103,6 +103,7 @@ export default {
         } */
     },
     created(){
+        document.documentElement.scrollTop = 0;
         this.getAjax();
     },
     mounted(){

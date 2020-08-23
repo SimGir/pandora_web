@@ -37,13 +37,16 @@ export default {
             hasLove:false
         }
     },
+    created(){
+        document.documentElement.scrollTop = 0;
+    },
     mounted(){
         this.load();
     },
     methods:{
         // 获取页面数据
         load(){
-            funs.allLove(url).then((res)=>{
+            funs.allLove().then((res)=>{
                 //console.log(res);
                 if(res.data.code===1){
                     if(res.data.data.length!==0){

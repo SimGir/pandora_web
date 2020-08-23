@@ -1,6 +1,5 @@
 <template>
   <div class="outer">
-    <pan-header></pan-header>
     <div class="box">
       <h1>购物车</h1>
       <div v-if="hasPro">
@@ -69,6 +68,9 @@ export default {
       orders: [], // 勾选的商品，传递给订单页的数据
     };
   },
+  created(){
+      document.documentElement.scrollTop = 0;
+  },
   mounted() {
     this.load();
   },
@@ -120,7 +122,7 @@ export default {
   methods: {
     // 连接服务器，获取页面数据
     load() {
-      funs.allCart(url).then((res) => {
+      funs.allCart().then((res) => {
         //console.log(res);
         if (res.data.code === 1) {
           if (res.data.data.length !== 0) {

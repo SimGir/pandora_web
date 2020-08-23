@@ -32,6 +32,9 @@ export default {
             upwd:""
         }
     },
+    created(){
+        document.documentElement.scrollTop = 0;
+    },
     methods:{
         login(){
             //获取到用户输入的用户名和密码

@@ -37,6 +37,9 @@ export default {
             upwd1:""
         }
     },
+    created(){
+        document.documentElement.scrollTop = 0;
+    },
     methods:{
         register(){
             var user_name = this.uname;

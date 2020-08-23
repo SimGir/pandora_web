@@ -5,7 +5,6 @@ import Gift from './views/Gift.vue'
 import Detail from './views/Detail.vue'
 import Login from './views/Login.vue'
 import Register from './views/Register'
-import Stringing from './views/Stringing'
 import ProDetail from './views/Product_details'
 import Love from './views/Love'
 import Cart from './views/Cart'
@@ -22,7 +21,6 @@ export default new Router({
     {path: '/index',component: Index},
     // {path: '/about',component: () => import('./views/About.vue')},
     {path:'/gift',component:Gift},
-    {path:'/stringing',component:Stringing},
     {path:'/prodetail',component:ProDetail},
     {path:'/love',component:Love},
     {path:'/cart',component:Cart},
