@@ -14,6 +14,7 @@ import MyOrder from './views/MyOrder'
 Vue.use(Router)
 
 export default new Router({
+  mode: 'hash',
   routes: [
     {path: '/',component: Index},
     {path:'/login',component:Login},
