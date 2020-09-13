@@ -1,37 +1,38 @@
-## Welcome to GitHub Pages
+## 项目介绍
 
-You can use the [editor on GitHub](https://github.com/SimGir/pandora_web/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
+购物网站，分前端网站和后端服务器
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+网站功能包括登录、注册、商品搜索、商品添加收藏、商品添加购物车、商品购买等功能
 
-### Markdown
+注：只有礼品页是动态获取数据生成的页面
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
 
-```markdown
-Syntax highlighted code block
+## 项目预览
 
-# Header 1
-## Header 2
-### Header 3
+[预览地址](https://simgir.github.io/pandora_web/dist/index.html)
 
-- Bulleted
-- List
 
-1. Numbered
-2. List
+## 项目运行
 
-**Bold** and _Italic_ and `Code` text
+前提：安装node环境，具体教程看官网 https://nodejs.org/zh-cn/ 
 
-[Link](url) and ![Image](src)
-```
+1. 克隆项目到本地
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+	git clone https://github.com/SimGir/pandora_web.git
 
-### Jekyll Themes
+2. 进入项目，安装依赖
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/SimGir/pandora_web/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+	cd pandora_web
+	npm install
 
-### Support or Contact
+3. 启动项目
 
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+	npm start
+
+4. 项目运行地址
+
+  浏览器中打开：http://127.0.0.1:3001 
+
+## 服务端
+
+移步 https://github.com/SimGir/pandora_server 
